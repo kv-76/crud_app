@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Application</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <form action="/add" method="POST">
+        <label for="content">Task:</label>
+        <input type="text" id="content" name="content" required>
+        <button type="submit">Add Task</button>
+    </form>
+    <ul>
+        <% todos.forEach(todo => { %>
+            <li>
+                <%= todo.content %>
+                <a href="/edit/<%= todo.id %>">Edit</a>
+                <a href="/delete/<%= todo.id %>">Delete</a>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
